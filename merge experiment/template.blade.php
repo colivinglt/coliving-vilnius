@@ -7,20 +7,6 @@
     <meta charset="UTF-8">
     <title>Coliving {{$data->coliving_name}}</title>
     <link rel="stylesheet" type="text/css" href="inc/css/style.css">
-    
-    
-    <meta property="og:site_name" content="Coliving {{$data->coliving_name}}">
-    <meta property=”og:title” content=”Coliving {{$data->coliving_name}}” />
-    <meta property="og:description" content="Coliving {{$data->coliving_name}} is the place to be">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="{{$data->og_picture_path}}" />
-    <meta property="og:url" content="{{$data->coliving_handle}}">
-    <meta property="og:gangsta" content="original">
-    <meta property="stasys">
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="inc/js/emerge.js"></script>
-    
 </head>
 <body>
 
@@ -28,23 +14,23 @@
     <!--Top phone number, button-->
     <div id="top-info">
         <div class="phone-number">{{$data->phone_number}}</div>
-        <a href="#Join"><div class="button">Join Coliving {{$data->coliving_name}}</div></a>
+        <div class="button">Join Coliving {{$data->coliving_name}}</div>
         @if(\Auth::check() && \Auth::user()->id == $data->user_id)
-        <div class="button edit">Edit page</div>
+        <div class="button" style="border: 1px solid #666666; color: #666666;">Edit page</div>
       @endif
 
     </div>
-    <div class="content-background emerge logotype" data-effect="zoom" data-scale="0.95" data-duration="1000">
-        <div class="logotype emerge" data-effect="zoom" data-scale="2" data-duration="2000">
+    <div class="content-background">
+        <div class="logotype">
             <img src="inc/images/coliving-logotype.svg">
-            <span class="coliving-name">{{$data->coliving_name}}</span>
+            <span style="display: block; text-align: right; font-size: 25px;">{{$data->coliving_name}}</span>
         </div>
         <div class="banner">
             <img src="/storage/{{$data->coliving_handle}}/{{$data->cover_picture_path}}" width="100%">
         </div>
-        <div class="content pitch">
+        <div class="content">
             <h2>{{$data->pitch_title}}</h2>
-            <p><?php echo nl2br($data->pitch_text); ?></p>
+            <?php echo nl2br($data->pitch_text); ?>
         </div>
     </div>
 </div>
@@ -54,11 +40,21 @@
             <?php echo '<h2>'.nl2br($data->room_situation).'</h2>' ?>
         </div>
         <div id="staff">
-            <div class="people">
+
+           <?php
+/*
+              $temp = Auth::user()->templates()->where('coliving_handle', $data->coliving_handle)->first();
+              $tm = $temp->people()->all();
+              foreach ($tm as $x) {
+
+              echo  '<div class="people">
                 <img src="inc/images/staff.svg" width="120px;">
-                <h2>Laurynas</h2>
-                <h4>Marketing and management</h4>
-            </div>
+                <h2>'.$x->name.'</h2>
+                <h4>'.$x->description.'</h4>
+                </div>';
+
+              }*/
+           ?>
             <div class="people">
                 <img src="inc/images/staff.svg" width="120px;">
                 <h2>Tomas</h2>
@@ -76,7 +72,7 @@
             </div>
             <div class="people">
                 <img src="inc/images/staff.svg" width="120px;">
-                <h2>Someone</h2>
+                <h2>Laurynas</h2>
                 <h4>Something</h4>
             </div>
             <div class="people">
@@ -123,7 +119,7 @@
     </div>
 </div>
 
-<div class="wrapper" id="Join">
+<div class="wrapper">
     <div class="content-background" style="position: relative; top: -200px;">
         <div class="logotype" style="top: -50px;">
             <span style="margin-left: 25px; display: block; text-align: left; font-size: 25px; font-style: italic;">{{$data->join}}</span>
@@ -133,8 +129,37 @@
         <div class="banner">
             <img src="inc/images/001.jpg" width="100%">
         </div>
+        <div id="contact-wrapper">
+            <div id="contact-box-1">
+                <h2 style="padding: 50px 50px 0 50px; width: 60%; line-height: 1.5; font-size: 31px; color: #00b461;"> <?php
+                echo nl2br($data->contact_text);
+                ?> <br></h2>
+                <h2 style="padding: 0 0 0 50px; width: 70%; line-height: 1.5; font-size: 31px; color: #000000;">{{$data->price_text_1}}</h2>
+            </div>
+            <div id="contact-box-2" style="padding: 50px 25px;">
+                <h2 style="font-size: 52px; font-style: italic;">{{$data->price_text_2}}</h2><br>
+                <form action="#" method="post">
+                    <input id="mailing-list" type="text" placeholder="Email" size="35">
+                    <input id="mailing-submit" type="submit" value="Join">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="footer-wrapper">
+        <div id="footer-box-1">
+            <b>{{$data->social_network_text}}</b><br><br>
+            <a href="http://www.facebook.com" target="_blank"><img src="inc/images/facebook.svg" width="30px"></a>
+            <a href="http://www.instagram.com" target="_blank"><img src="inc/images/instagram.svg" width="30px"></a>
+        </div>
+        <div id="footer-box-2">
+            Want to establish your own coliving in your city?<br><br>
+            We consult and provide these beautiful websites to coliving hosts and real estate owners.<br> <a href="#">Try Coliving.lt services for free</a>
+        </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="inc/js/emerge.js" type="text/javascript"></script>
 
 </body>
 </html>
