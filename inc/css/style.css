@@ -1,0 +1,139 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  hyphens: none;
+  list-style-type: none;
+}
+
+
+body {
+    margin: 0;
+    background-color: #fffde5;
+    font-family: "Helvetica Neue", "Helvetica", sans-serif;
+}
+
+
+.wrapper {
+    margin: 0 auto;
+    width: 75%;
+}
+
+#top-info {
+    padding: 25px 0;
+    width: 100%;
+    text-align: right;
+}
+
+#top-info .phone-number, .button {
+    display: inline-block;
+}
+
+.phone-number {
+    margin: 0 10px;
+    font-weight: 500;
+}
+
+.button {
+    padding: 7px 10px 9px 10px;
+    color: #00b461;
+    border: 1px solid #00b461;
+    border-radius: 3px;
+    font-weight: 500;
+    transition: 0.5s;
+    transition-timing-function: ease-out;
+    margin: 0 5px;
+}
+
+.button:hover {
+  color: #fff;
+  border: 1px solid #00b461;
+  background-color: #00b461;
+  transition: 0.25s;
+  transition-timing-function: ease-out;
+}
+
+.logotype {
+    width: 300px;
+    position: relative;
+    top: -20px;
+    left: -25px;
+}
+
+.coliving-name {
+  display: block;
+  text-align: right;
+  font-size: 24px;
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.content-background {
+    width: 100%;
+    background-color: #FFFFFF;
+    -moz-box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.banner {
+    float: left;
+    width: 100%;
+}
+
+.content {
+    margin-left: 100px;
+    padding-bottom: 25px;
+    width: 50%;
+}
+
+.grey-block {
+    position: relative;
+    top: -50px;
+    padding-top: 70px;
+    padding-bottom: 35px;
+    width: 100%;
+    background: #eeeeee;
+    z-index: -999;
+}
+
+#staff {
+    text-align: center;
+    width: 100%;
+}
+
+#staff .people {
+    padding-bottom: 25px;
+    width: 300px;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+#masonry-wrapper {
+    width: 100%;
+    text-align: center;
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+}
+
+#masonry-wrapper .thumbnail {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#projects-block {
+    padding-bottom: 75px;
+    text-align: center;
+    width: 100%;
+}
+
+#projects-block .project-content {
+    padding-left: 35px;
+    width: 40%;
+    text-align: left;
+    display: inline-block;
+}
